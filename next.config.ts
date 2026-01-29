@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
-import path from "node:path";
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
 const loaderPath = require.resolve('orchids-visual-edits/loader.js');
 
 const nextConfig: NextConfig = {
@@ -15,7 +16,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  outputFileTracingRoot: path.resolve(__dirname, '../../'),
   typescript: {
     ignoreBuildErrors: true,
   },
